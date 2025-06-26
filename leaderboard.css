@@ -1,0 +1,188 @@
+/* ===================================================
+    leaderboard.css
+    Styles for the Leaderboard page
+    Aligned with app.css theme
+================================================== */
+
+/* ===========================
+   Leaderboard Theme Styles
+=========================== */
+
+/* ===================================================
+    Leaderboard Styles
+    Will inherit theme from body class
+================================================== */
+
+/* ===========================
+   Leaderboard Theme Styles
+=========================== */
+
+/* Default theme */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafc;
+    color: #333;
+}
+
+.leaderboard-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    color: var(--cc);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+/* Pirate theme */
+body.pirate {
+    background-color: #1a1a1a;
+    color: #f2e6d9;
+}
+
+/* Fantasy theme */
+body.fantasy {
+    background-color: #fce4ec;
+    color: #6a1b9a;
+}
+
+/* Jungle theme */
+body.jungle {
+    background-color: #ccffcc;
+    color: #1b5e20;
+}
+
+
+
+/* body {
+    font-family: "Potta One", cursive;
+    background-color: var(--bg-body);
+    color: var(--color-txt);
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.leaderboard-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: var(--font-size-xl);
+    color: var(--cc);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+table thead {
+    background-color: var(--cc);
+    color: var(--white);
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+}
+
+table tr:nth-child(odd) {
+    background-color: var(--bg-main);
+}
+
+table tr:nth-child(even) {
+    background-color: var(--bg-body);
+} */
+
+
+
+/* Default theme */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafc;
+    color: #333;
+} */
+
+/* Pirate theme */
+/* body.pirate {
+    background-color: #1a1a1a;
+    color: #f2e6d9;
+}
+
+/* Fantasy theme */
+/* body.fantasy { 
+    background-color: #fce4ec;
+    color: #6a1b9a;
+} */
+
+/* Jungle theme */
+/* body.jungle {
+    background-color: #ccffcc;
+    color: #1b5e20;
+}
+
+
+body {
+    font-family: "Potta One", cursive;
+    background-color: var(--bg-body);
+    color: var(--color-txt);
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.leaderboard-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    font-size: var(--font-size-lg);
+    color: var(--cc);
+    margin-bottom: var(--space-y);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+}
+
+table thead {
+    background-color: var(--cc);
+    color: var(--white);
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+    font-size: var(--font-size);
+}
+
+table tr:nth-child(odd) {
+    background-color: var(--bg-main);
+}
+
+table tr:hover {
+    background-color: var(--filled-bg);
+} */

@@ -1,0 +1,186 @@
+<!-- ===================================================
+    leaderboard.html
+    ===================================================
+    This page displays the Leaderboard for the Sudoku game.
+    Shows: Player Name, Time Ended, Level
+================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sudoku Leaderboard</title>
+<link rel="icon" href="./static/images/icon.png" type="image/png" sizes="32x32">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!-- Main Styles -->
+<link rel="stylesheet" href="app.css">
+
+<!-- Leaderboard Specific Styles -->
+<style>
+body {
+    font-family: "Potta One", cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+.leaderboard-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+h1 {
+    margin-top: 50px;
+    font-size: var(--font-size-xl);
+    color: var(--filled-color);
+    margin-bottom: 30px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+table thead {
+    background-color: var(--cc);
+    color: var(--black);
+}
+table th, table td {
+    padding: 12px;
+    text-align: center;
+}
+table tr:nth-child(odd) {
+    background-color: var(--filled-bg);
+}
+table tr:nth-child(even) {
+    background-color: var(--color-txt);
+}
+.back-button {
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--cc);
+    color: var(--white);
+    border: none;
+    margin: 20px 0;
+}
+.back-button:hover {
+    opacity: 0.9;
+}
+</style>
+
+</head>
+
+<body>
+<!-- Navbar -->
+<nav>
+    <div class="nav-container">
+        <div class="nav-logo">Leaderboard</div>
+        <div class="nav-icons">
+            <div class="theme-dropdown-wrapper">
+                <i class="bx bx-palette theme-icon"></i>
+                <ul class="theme-dropdown">
+                    <li data-theme="jungle">Jungle</li>
+                    <li data-theme="pirate">Pirate</li>
+                    <li data-theme="fantasy">Fantasy</li>
+                    <li data-theme="default">Default</li>
+                </ul>
+            </div>
+            <div id="dark-mode-toggle">
+                <i class="bx bxs-moon"></i>
+                <i class="bx bxs-sun"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Leaderboard Section -->
+<div class="leaderboard-container">
+    <h1>🏆 Leaderboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Time</th>
+                <th>Level</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+            <!-- Entries will be added here via JS -->
+        </tbody>
+    </table>
+    <!-- Back to Game Button -->
+    <button class="back-button" id="back-button">← Back to Game</button>
+</div>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+<script>
+    // =========================================================
+    // THEME/DARK MODE LOGIC
+    // =========================================================
+    const themes = ["jungle", "pirate", "fantasy"];
+    window.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("selectedTheme");
+        if (savedTheme && (themes.includes(savedTheme) || savedTheme === "default")) {
+            if (savedTheme !== "default") {
+                document.body.classList.add(savedTheme);
+            }
+        }
+        const darkmode = JSON.parse(localStorage.getItem("darkmode"));
+        if (darkmode) {
+            document.body.classList.add("dark");
+        }
+    });
+    // Theme Dropdown
+    document.querySelectorAll('.theme-dropdown li').forEach(item => {
+        item.addEventListener('click', function() {
+            const selectedTheme = item.getAttribute('data-theme');
+            if (selectedTheme === "default") {
+                themes.forEach(theme => document.body.classList.remove(theme));
+                localStorage.removeItem("selectedTheme");
+            } else {
+                themes.forEach(theme => document.body.classList.remove(theme));
+                document.body.classList.add(selectedTheme);
+                localStorage.setItem("selectedTheme", selectedTheme);
+            }
+        });
+    });
+    // Dark Mode Toggle
+    document.querySelector('#dark-mode-toggle').addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDarkMode = document.body.classList.contains('dark');
+        localStorage.setItem('darkmode', isDarkMode);
+    });
+    // =========================================================
+    // LEADERBOARD LOGIC
+    // =========================================================
+    const loadLeaderboard = () => {
+        const leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        const tableBody = document.getElementById('leaderboard-body');
+        tableBody.innerHTML = '';
+        leaderboard.forEach(entry => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${entry.name}</td>
+                <td>${entry.time}</td>
+                <td>${entry.level}</td>
+            `;
+            tableBody.appendChild(tr);
+        });
+    };
+    loadLeaderboard();
+    // =========================================================
+    // BACK BUTTON
+    // =========================================================
+    document.getElementById('back-button').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+</script>
+<!-- Boxicons CDN for theme icon usage -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+</body>
+
+</html>

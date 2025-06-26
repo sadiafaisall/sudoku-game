@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- mobile status bar color -->
+    <meta name="theme-color" content="#fff">
+    <title>Sudoku</title>
+    <link rel="icon" href="./static/images/icon.png" type="image/png" sizes="32x32">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- app css -->
+    <link rel="stylesheet" href="./app.css">
+
+</head>
+
+<body>
+
+    <!-- top nav -->
+    <nav>
+  <div class="nav-container">
+    <a href="#" class="nav-logo">Sudoku</a>
+
+    <div class="nav-icons">
+      <!-- Sun/Moon toggle -->
+      <div class="dark-mode-toggle" id="dark-mode-toggle">
+        <i class="bx bxs-sun" id="sun-icon"></i>
+        <i class="bx bxs-moon" id="moon-icon"></i>
+      </div>
+
+      <!-- Theme Icon + Dropdown -->
+      <div class="theme-dropdown-wrapper" id="theme-wrapper">
+        <i class="bx bx-palette theme-icon" id="theme-icon"></i>
+        <ul class="theme-dropdown" id="theme-dropdown">
+            <li data-theme="default">🟢 Default Theme</li>
+          <li data-theme="jungle">🌿 Jungle Theme</li>
+          <li data-theme="pirate">🏴‍☠️ Pirate Theme</li>
+          <li data-theme="fantasy">🧚 Fantasy Theme</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <!-- end top nav -->
+
+    <!-- main -->
+    <div class="main">
+        <div class="screen">
+            <!-- start screen -->
+             <!-- START SCREEN -->
+<div class="start-screen active" id="start-screen">
+    <input
+        type="text"
+        placeholder="Your name"
+        maxlength="11"
+        class="input-name"
+        id="input-name"
+    />
+    <div class="btn" id="btn-level">Easy</div>
+    <div class="btn" id="btn-continue">Continue</div>
+    <div class="btn btn-blue" id="btn-play">New game</div>
+
+    
+</div>
+
+            <!-- <div class="start-screen active" id="start-screen"> 
+                <input type="text" placeholder="Your name" maxlength="11" class="input-name" id="input-name">
+                <div class="btn" id="btn-level"> -->
+                    <!-- Easy
+                </div>
+                <div class="btn" id="btn-continue">Continue</div>
+                <div class="btn btn-blue" id="btn-play">New game</div>
+                <div class="btn-rules">Rules
+                    <div id="game-rules-modal" class="modal hidden">
+                    <div class="modal-content">
+                    <span class="close" id="close-rules">&times;</span>
+                    <h3>Sudoku Rules</h3>
+                <ul>
+                    <li>✅ Each row must contain digits 1–9 with no repetition</li>
+                    <li>✅ Each column must contain digits 1–9 with no repetition</li>
+                    <li>✅ Each 3×3 box must contain digits 1–9 with no repetition</li>
+                    <li>✅ Start with pre-filled clues. Use logic — no guessing required</li>
+                </ul>
+                    </div>
+                    </div>
+                </div>
+            </div> -->
+            
+<!-- RULES BUTTON START -->
+<!-- <div id="show-rules-button" class="btn rules-button">
+    Rules
+    <div class="rules-popout hidden">
+        <span class="close-rules">&times;</span>
+        <h3>Sudoku Rules</h3>
+        <ul>
+            <li>✅ Each row must contain digits 1–9 with no repetition</li>
+            <li>✅ Each column must contain digits 1–9 with no repetition</li>
+            <li>✅ Each 3×3 box must contain digits 1–9 with no repetition</li>
+            <li>✅ Start with pre-filled clues. Use logic — no guessing required</li>
+        </ul>
+    </div>
+</div> -->
+<!-- RULES BUTTON END -->
+
+
+            <!-- =================== RULES MODAL =================== -->
+        <!-- <div id="game-rules-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="close-rules">&times;</span>
+                <h3>Sudoku Rules</h3>
+                <ul>
+                    <li>✅ Each row must contain digits 1–9 with no repetition</li>
+                    <li>✅ Each column must contain digits 1–9 with no repetition</li>
+                    <li>✅ Each 3×3 box must contain digits 1–9 with no repetition</li>
+                    <li>✅ Start with pre-filled clues. Use logic — no guessing required</li>
+                </ul>
+            </div>
+        </div> -->
+            <!-- end start screen -->
+
+            <!-- game screen -->
+            <div class="main-game" id="game-screen">
+                <div class="main-sudoku-grid">
+                    <!-- 81 cells -->
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                    <div class="main-grid-cell"></div>
+                </div>
+
+                <div class="main-game-info">
+                    <div class="main-game-info-box main-game-info-name">
+                        <span id="player-name">tuat</span>
+                    </div>
+                    <div class="main-game-info-box main-game-info-level">
+                        <span id="game-level">Easy</span>
+                    </div>
+                </div>
+
+                <div class="main-game-info-box main-game-info-time">
+                    <span id="game-time">10:20</span>
+                    <div class="pause-btn" id="btn-pause">
+                        <i class="bx bx-pause"></i>
+                    </div>
+                </div>
+
+                <div class="numbers">
+                    <div class="number">1</div>
+                    <div class="number">2</div>
+                    <div class="number">3</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">7</div>
+                    <div class="number">8</div>
+                    <div class="number">9</div>
+                    <div class="delete" id="btn-delete">X</div>
+                </div>
+            </div>
+            <!-- end game screen -->
+
+            <!-- pause screen -->
+            <div class="pause-screen" id="pause-screen">
+                <div class="btn btn-blue" id="btn-resume">Resume</div>
+                <div class="btn" id="btn-new-game">New game</div>
+            </div>
+            <!-- end pause screen -->
+
+            <!-- result screen -->
+            <div class="result-screen" id="result-screen">
+                <div class="congrate">Congratulations!</div>
+                <div class="info">Time</div>
+                <div id="result-time"></div>
+                <div class="btn" id="btn-new-game-2">New game</div>
+                <!-- changed by me -->
+                <button id="btn-view-leaderboard" class="btn btn-blue">View Leaderboard</button> 
+            </div>
+            <!-- end result screen -->
+        </div>
+    </div>
+    <!-- end main -->
+     
+    <script src="./static/js/constant.js"></script>
+    <script src="./static/js/sudoku.js"></script>
+    <script src="./static/js/app.js"></script>
+    
+</body>
+
+<script>
+document.getElementById('theme-icon').addEventListener('click', function (e) {
+    const dropdown = document.getElementById('theme-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    e.stopPropagation(); // prevent closing on same click
+});
+
+// Hide dropdown when clicking outside
+document.addEventListener('click', function (e) {
+    const wrapper = document.getElementById('theme-wrapper');
+    if (!wrapper.contains(e.target)) {
+        document.getElementById('theme-dropdown').style.display = 'none';
+    }
+});
+
+// Handle theme selection
+document.querySelectorAll('.theme-dropdown li').forEach(item => {
+    item.addEventListener('click', function () {
+        const selectedTheme = item.getAttribute('data-theme');
+        document.body.className = selectedTheme;
+    });
+});
+</script>
+
+
+<script>
+const themes = ['jungle', 'pirate', 'fantasy'];
+
+// Restore saved theme on load
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('selectedTheme');
+  if (themes.includes(savedTheme)) {
+    document.body.classList.add(savedTheme);
+  }
+});
+
+// Show/hide dropdown
+document.getElementById('theme-icon').addEventListener('click', function (e) {
+    const dropdown = document.getElementById('theme-dropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    e.stopPropagation();
+});
+
+// Hide dropdown on outside click
+document.addEventListener('click', function (e) {
+    const wrapper = document.getElementById('theme-wrapper');
+    if (!wrapper.contains(e.target)) {
+        document.getElementById('theme-dropdown').style.display = 'none';
+    }
+});
+
+// Apply selected theme
+document.querySelectorAll('.theme-dropdown li').forEach(item => {
+    item.addEventListener('click', function () {
+        const selectedTheme = item.getAttribute('data-theme');
+
+        // Remove all previous themes
+        themes.forEach(theme => document.body.classList.remove(theme));
+
+        // Add the selected one
+        document.body.classList.add(selectedTheme);
+
+        // Save to localStorage
+        localStorage.setItem('selectedTheme', selectedTheme);
+
+        // Close dropdown
+        document.getElementById('theme-dropdown').style.display = 'none';
+    });
+});
+</script>
+
+</html>
