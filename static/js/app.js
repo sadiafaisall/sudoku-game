@@ -321,7 +321,7 @@ const showResult = () => {
                     }
                 } else {
                     // ❌ Not Safe --> Do NOT save
-                    alert('❌ This move is NOT allowed!\nCheck the rules for valid placement.\n SUDOKU RULES: \n✅ Each row must contain digits 1–9 with no repetition\n✅ Each column must contain digits 1–9 with no repetition\n✅ Each 3×3 box must contain digits 1–9 with no repetition\n✅ Start with pre-filled clues. Use logic — no guessing required');
+                    alert('❌ This move is NOT allowed!\nCheck the rules for valid placement.\n🧩 SUDOKU RULES: \n✅ Each row must contain digits 1–9 with no repetition\n✅ Each column must contain digits 1–9 with no repetition\n✅ Each 3×3 box must contain digits 1–9 with no repetition');
                 }
             }
         });
